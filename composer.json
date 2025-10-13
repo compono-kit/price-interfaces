@@ -1,0 +1,30 @@
+{
+	"name": "compono-kit/price-interfaces",
+	"description": "Interfaces for price classes using money interfaces",
+	"homepage": "https://github.com/compono-kit/price-interfaces",
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"license": "proprietary",
+	"authors": [
+		{
+			"name": "Benjamin Bruska",
+			"email": "benjamin.bruska@your-coder.de"
+		}
+	],
+	"require": {
+		"php": ">=8.0",
+		"compono-kit/money-interfaces": "dev-main"
+	},
+	"repositories": {
+		"compono-kit/money-interfaces": {
+			"type": "vcs",
+			"url": "git@github.com:compono-kit/money-interfaces.git"
+		}
+	},
+	"autoload": {
+		"psr-4": {
+			"ComponoKit\\Prices\\Interfaces\\": "src/"
+		}
+	}
+}
+
