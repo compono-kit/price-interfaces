@@ -13,13 +13,7 @@
 	],
 	"require": {
 		"php": ">=8.0",
-		"compono-kit/money-interfaces": "dev-main"
-	},
-	"repositories": {
-		"compono-kit/money-interfaces": {
-			"type": "vcs",
-			"url": "git@github.com:compono-kit/money-interfaces.git"
-		}
+		"compono-kit/money-interfaces": "1.0.0"
 	},
 	"autoload": {
 		"psr-4": {
