@@ -25,7 +25,8 @@ interface RepresentsTotalPrice
 	public function getCurrency(): RepresentsCurrency;
 
 	/**
-	 * @return RepresentsPrice[][] (int[] => RepresentsPrice)
+	 * @return array<int, RepresentsPrice[]> An array where keys are VAT rates (as integers)
+	 *                                        and values are arrays of RepresentsPrice objects
 	 */
 	public function getPricesGroupedByVatRates(): array;
 
