@@ -2,14 +2,17 @@
 
 namespace ComponoKit\Prices\Interfaces;
 
+use ComponoKit\Money\Interfaces\BuildsMoneys;
 use ComponoKit\Money\Interfaces\RepresentsCurrency;
 use ComponoKit\Money\Interfaces\RepresentsMoney;
 
 interface RepresentsTotalPrice
 {
-	public function addTotalPrice( RepresentsTotalPrice $totalPrice ): RepresentsTotalPrice;
+	public function addTotalPrice( RepresentsTotalPrice $totalPrice ): static;
 
-	public function addPrice( RepresentsPrice $price ): RepresentsTotalPrice;
+	public function addPrice( RepresentsPrice $price ): static;
+
+	public function subtractPrice( RepresentsPrice $price ): static;
 
 	public function getTotalGrossAmount(): RepresentsMoney;
 
@@ -24,6 +27,8 @@ interface RepresentsTotalPrice
 
 	public function getCurrency(): RepresentsCurrency;
 
+	public function getMoneyFactory(): BuildsMoneys;
+
 	/**
 	 * @return array<int, RepresentsPrice[]> An array where keys are VAT rates (as integers)
 	 *                                        and values are arrays of RepresentsPrice objects
@@ -31,7 +36,7 @@ interface RepresentsTotalPrice
 	public function getPricesGroupedByVatRates(): array;
 
 	/**
-	 * @return RepresentsPrice[]
+	 * @return array<int, RepresentsPrice>
 	 */
 	public function getPrices(): array;
 }

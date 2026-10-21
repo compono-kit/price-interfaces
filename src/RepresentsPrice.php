@@ -17,23 +17,23 @@ interface RepresentsPrice
 
 	public function getCurrency(): RepresentsCurrency;
 
-	public function multiply( float $quantity ): RepresentsPrice;
+	public function multiply( float $quantity, \RoundingMode $roundingMode = \RoundingMode::HalfAwayFromZero ): static;
 
-	public function divide( float $quantity ): RepresentsPrice;
+	public function divide( float $quantity, \RoundingMode $roundingMode = \RoundingMode::HalfAwayFromZero ): static;
 
-	public function add( RepresentsPrice $price ): RepresentsPrice;
+	public function add( RepresentsPrice $price ): static;
 
-	public function subtract( RepresentsPrice $price ): RepresentsPrice;
+	public function subtract( RepresentsPrice $price ): static;
 
 	/**
-	 * @return \Iterator<int,RepresentsPrice>
+	 * @return \Iterator<int,static>
 	 */
 	public function allocateToTargets( int $numberOfTargets ): \Iterator;
 
 	/**
 	 * @param array<int,int> $ratios
 	 *
-	 * @return \Iterator<int,RepresentsPrice>
+	 * @return \Iterator<int,static>
 	 */
 	public function allocateByRatios( array $ratios ): \Iterator;
 }
